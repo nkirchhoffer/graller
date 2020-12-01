@@ -1,0 +1,86 @@
+* Installation
+
+** node : cf. https://nodejs.org/en/
+
+- Choisir la version LTS (Long Term Support) 12.13.0.
+- L'installer dans un répertoire X (nom sans espace).
+- Mettre à jour la variable d'environnement PATH. Par exemple, sous
+  linux, rajouter à la fin de $HOME/.bashrc :
+
+  PATH="X/node-v10.16.3-linux-x64/bin":$PATH
+  export PATH
+
+- Tester dans un nouveau shell :
+  - > whereis node
+  - > whereis npm
+  - > node --version
+  - > npm --version
+
+- Vous devez obtenir
+  - "X/node-v12.13.0-linux-x64/bin/node",
+  - "X/node-v12.13.0-linux-x64/bin/npm",
+  - "v12.13.0",
+  - "6.12.0".
+
+** visual studio code : version 1.40
+
+- Installer code : cf. https://code.visualstudio.com/Download
+
+- Configurer code  pour Typescript : cf. https://code.visualstudio.com/docs/languages/typescript
+- Globalement :
+  - > npm install -g typescript
+  - > tsc --version
+- Localement :
+  - > npm install --save-dev typescript
+  - > ./node_modules/.bin/tsc --version
+
+- Ouvrir code dans le répertoire du projet ("> code projet") puis un fichier .ts :
+  la version de typescript 3.x apparaît en bas à droite.
+
+- Vérifier l'accès au compilateur en ligne de commande :
+  - > tsc --version
+
+* npm
+
+(processus pour compiler, exécuter, dépendances)
+
+- fichier package.json
+
+* Typescript
+
+(options de compilation)
+
+- fichier de configuration : tsconfig.json
+
+
+** Compilation
+
+- > npm run build
+
+Cette commande a pour effet de compiler les fichiers source .ts et de
+les placer dans build, en respectant la structure des répertoires.
+
+Remarque : le script build est défini dans la section "scripts" du
+fichier "package.json".
+
+** Exécution
+
+- > npm run eval
+Cette commande a pour effet de lancer l'interprétation d'un fichier js
+en utilisant node. Voir la définition du script dans le fichier
+"package.json". Ces scripts sont à définir à mesure que se développent
+les exécutables.
+
+** Interprétation
+
+Il est possible d'interpréter directement un fichier .ts.
+
+Installer l'interpréteur localement.
+- > npm install ts-node --save-dev
+
+Eventuellement si ce n'est déjà fait, installer typescript localement :
+- > npm install typescript --save-dev
+
+Lancer l'interpréteur.
+- > ts-node X.ts
+
